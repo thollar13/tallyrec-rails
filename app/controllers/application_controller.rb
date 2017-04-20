@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  def after_sign_in_path_for(resource)
+    # check if current user has a team, if so redirect to that team
+    new_team_path
+  end
+
 end
