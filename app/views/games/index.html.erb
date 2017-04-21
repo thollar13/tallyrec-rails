@@ -27,16 +27,16 @@
             <td><%= game.field %></td>
             <td>4/26
             <td>4:00 PM</td>
-            <td>W</td>
-            <td>12</td>
-            <td>10</td>
+            <td><%= game_result(game.result) %></td>
+            <td><%= game.points_for %></td>
+            <td><%= game.points_against %></td>
             <td>
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Edit
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Edit</a>
+                  <%= link_to 'Edit', edit_team_game_path(@team, game), class: 'dropdown-item' %>
                   <a class="dropdown-item" href="#">Delete</a>
                 </div>
               </div>
@@ -47,8 +47,8 @@
           <tr>
             <td></td>
             <td></td>
-            <td><%= f.text_field :park %></td>
-            <td><%= f.text_field :field %></td>
+            <td><%= f.text_field :park, :required => true %></td>
+            <td><%= f.text_field :field, :required => true %></td>
             <td></td>
             <td></td>
             <td></td>

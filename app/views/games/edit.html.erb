@@ -7,14 +7,14 @@
         <div class="form-group row">
           <label for="example-text-input" class="col-2 col-form-label"><%= f.label :field %></label>
           <div class="col-10">
-            <%= f.text_field :field, class: 'form-control' %>
+            <%= f.text_field :field, :required => true, class: 'form-control' %>
           </div>
         </div>
 
         <div class="form-group row">
           <label for="example-text-input" class="col-2 col-form-label"><%= f.label :park %></label>
           <div class="col-10">
-            <%= f.text_field :park, class: 'form-control' %>
+            <%= f.text_field :park, :required => true, class: 'form-control' %>
           </div>
         </div>
 
@@ -29,20 +29,6 @@
           <label for="example-text-input" class="col-2 col-form-label"><%= f.label :points_against %></label>
           <div class="col-10">
             <%= f.text_field :points_against, class: 'form-control' %>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="example-text-input" class="col-2 col-form-label"><%= f.label :season %></label>
-          <div class="col-10">
-            <%= f.text_field :season, class: 'form-control' %>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="example-text-input" class="col-2 col-form-label"><%= f.label :year %></label>
-          <div class="col-10">
-            <%= f.text_field :year, class: 'form-control' %>
           </div>
         </div>
 

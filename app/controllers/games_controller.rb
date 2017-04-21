@@ -5,6 +5,11 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def edit
+    @team = Team.find(params[:team_id])
+    @game = Game.where("team_id = ? AND id = ?", params[:team_id], params[:id]).first
+  end
+
   def create
     game = Game.new(game_params)
 
@@ -15,6 +20,16 @@ class GamesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: game.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @game = Game.find(params[:id])
+
+    respond_to do |format|
+      if @game.update(game_params)
+        format.html { redirect_to team_games_path(params[:team_id]), notice: 'Game was successfully updated.' }
       end
     end
   end
