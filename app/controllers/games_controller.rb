@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 
   def index
     @team = Team.find(params[:team_id])
+    @game = Game.new
   end
 
   def create
@@ -9,7 +10,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if game.save
-        format.html { redirect_to game, notice: 'Game was successfully created.' }
+        format.html { redirect_to team_games_path(params[:team_id]), notice: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: game }
       else
         format.html { render :new }
