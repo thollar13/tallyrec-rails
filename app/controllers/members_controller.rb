@@ -1,15 +1,19 @@
 class MembersController < ApplicationController
 
+  def index
+    @team = Team.find(params[:team_id])
+  end
+
   def create
-    member = Team.new(member_params)
+    member = Member.new(member_params)
 
     respond_to do |format|
-      if roster.save
-        format.html { redirect_to roster, notice: 'Roster was successfully created.' }
-        format.json { render :show, status: :created, location: roster }
+      if member.save
+        format.html { redirect_to member, notice: 'Member was successfully created.' }
+        format.json { render :show, status: :created, location: member }
       else
         format.html { render :new }
-        format.json { render json: roster.errors, status: :unprocessable_entity }
+        format.json { render json: member.errors, status: :unprocessable_entity }
       end
     end
   end

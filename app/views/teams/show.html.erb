@@ -1,9 +1,2 @@
 <h1><%= @team.name %></h1>
 <h6><%= @team.season %> <%= @team.year %>
-
-<% @team.members.each do |member| %>
-  <%= member.user.first_name %>
-  <%= member.user.last_name %>
-  <%= member.user.phone_number %>
-  <%= member.role %>
-<% end %>

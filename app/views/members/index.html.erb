@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <button>Roll Call</button>
+      <button>Send Team Message</button>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Attendance</th>
+            <th>Role</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @team.members.each do |member| %>
+            <tr>
+              <th scope="row">1</th>
+              <td><%= member.user.first_name %></td>
+              <td><%= member.user.last_name %></td>
+              <td><%= member.user.phone_number %></td>
+              <td>85%</td>
+              <td><%= member.role %></td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Edit
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Send Message</a>
+                    <a class="dropdown-item" href="#">Edit</a>
+                    <a class="dropdown-item" href="#">Delete</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
