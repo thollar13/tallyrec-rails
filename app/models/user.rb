@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :members
+
   def email_required?
     false
   end
@@ -11,4 +13,5 @@ class User < ActiveRecord::Base
   def email_changed?
     false
   end
+  
 end
