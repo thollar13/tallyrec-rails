@@ -8,38 +8,37 @@
 </head>
 <body>
 
-
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <%= link_to 'Dashboard', team_path(default_team.team_id), class: 'nav-link' %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 'Schedule', team_games_path(default_team.team_id), class: 'nav-link' %>
-  </li>
-  <!-- <li class="nav-item">
-    <a class="nav-link" href="#">Stats</a>
-  </li> -->
-  <li class="nav-item">
-    <%= link_to 'Roster', team_members_path(default_team.team_id), class: 'nav-link' %>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Chat</a>
-  </li>
-  <li class="nav-item">
-    <% if user_signed_in? %>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-    <% else %>
-      <%= link_to('Login', new_user_session_path)  %>  
-    <% end %>
-  </li>
-</ul>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-
-
-<%= yield %>
+  <div class="main-nav">
+    <div class="main-nav__header">
+      <%= current_user.first_name %> <%= current_user.last_name %>
+    </div>
+    <div class="main-nav__divider">Blood, Sweat &amp; Beers</div>
+    <div class="main-nav__current-team--nav">
+      <%= link_to 'Dashboard', team_path(default_team.team_id), class: 'nav-link' %>
+      <%= link_to 'Schedule', team_games_path(default_team.team_id), class: 'nav-link' %>
+      <%= link_to 'Roster', team_members_path(default_team.team_id), class: 'nav-link' %>
+    </div>
+    <div class="main-nav__divider">Your Teams</div>
+    <div class="main-nav__team-list">
+      <a href="" class="nav-link">
+        <i class="fa fa-plus" aria-hidden="true"></i> 
+        Add Team
+      </a>
+    </div>
+    <div class="main-nav__divider">Settings</div>
+    <div class="main-nav__settings">
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+      <% else %>
+        <%= link_to('Login', new_user_session_path)  %>  
+      <% end %>
+    </div>
+  </div>
+  <div class="main-content">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

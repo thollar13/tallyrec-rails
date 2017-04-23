@@ -15,3 +15,20 @@
  */
 
 @import "bootstrap";
+@import "font-awesome";
+@import "./main-nav";
+
+.main-content {
+  position: fixed;
+  overflow-y: scroll;
+  left: 250px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.view-settings {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
