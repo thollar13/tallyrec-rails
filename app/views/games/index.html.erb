@@ -2,70 +2,50 @@
   <button><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Schedule</button>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <table class="table">
-        <thead class="thead-inverse">
-          <tr>
-            <th>#</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Park</th>
-            <th>Field</th>
-            <th>Opponent</th>
-            <th>Result</th>
-            <th>PF</th>
-            <th>PA</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @team.games.each_with_index do |game, index| %>
-          <tr>
-            <th scope="row"><%= index + 1 %></th>
-            <td>4/26
-            <td>4:00 PM</td>
-            <td><%= game.park %></td>
-            <td><%= game.field %></td>
-            <td>Opponent Name</td>
-            <td><%= game_result(game.result) %></td>
-            <td><%= game.points_for %></td>
-            <td><%= game.points_against %></td>
-            <td>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Edit
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'Edit', edit_team_game_path(@team, game), class: 'dropdown-item' %>
-                  <a class="dropdown-item" href="#">Delete</a>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <% end %>
-          <%= form_for [@team, @game] do |f| %>
-          <tr>
-            <td></td>
-            <td></td>
-            <td><%= f.text_field :park, :required => true %></td>
-            <td><%= f.text_field :field, :required => true %></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <%= f.hidden_field :team_id, value: @team.id %>
-              <%= f.hidden_field :season, value: @team.season %>
-              <%= f.hidden_field :year, value: @team.year %>
-              <%= f.submit "Add Game" %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+<div class="item-wrap">
 
-    </div>
-  </div>
+    <% @team.games.each do |game| %>
+      <div class="item">
+        <div>
+          4/26 @ 4:00 PM<br/>
+          <%= game.park %> - Field <%= game.field %>
+        </div>
+        <div>
+          Opponent Name
+        </div>
+        <div>
+          <%= game_result(game.result) %><br/>
+          <%= game.points_for %>-<%= game.points_against %>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Edit
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Edit', edit_team_game_path(@team, game), class: 'dropdown-item' %>
+            <a class="dropdown-item" href="#">Delete</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
 </div>
+
+<%= form_for [@team, @game] do |f| %>
+<tr>
+  <td></td>
+  <td></td>
+  <td><%= f.text_field :park, :required => true %></td>
+  <td><%= f.text_field :field, :required => true %></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>
+    <%= f.hidden_field :team_id, value: @team.id %>
+    <%= f.hidden_field :season, value: @team.season %>
+    <%= f.hidden_field :year, value: @team.year %>
+    <%= f.submit "Add Game" %>
+  </td>
+</tr>
+<% end %>

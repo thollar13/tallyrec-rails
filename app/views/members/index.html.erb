@@ -3,43 +3,24 @@
   <button><i class="fa fa-comment-o" aria-hidden="true"></i> Send Team Message</button>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <table class="table">
-        <thead class="thead-inverse">
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone Number</th>
-            <th>Manage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @team.members.each do |member| %>
-            <tr>
-              <th scope="row">1</th>
-              <td><%= member.user.first_name %></td>
-              <td><%= member.user.last_name %></td>
-              <td><%= member.user.phone_number %></td>
-              <td>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Edit
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Send Message</a>
-                    <a class="dropdown-item" href="#">Edit</a>
-                    <a class="dropdown-item" href="#">Delete</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
+<div class="item-wrap">
+  <% @team.members.each do |member| %>
+    <div class="item">
+      <div><%= member.user.first_name %></div>
+      <div><%= member.user.last_name %></div>
+      <div><%= member.user.phone_number %></div>
+      <div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Edit
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Send Message</a>
+            <a class="dropdown-item" href="#">Edit</a>
+            <a class="dropdown-item" href="#">Delete</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

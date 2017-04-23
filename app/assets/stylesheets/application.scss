@@ -111,3 +111,25 @@
     color: white;
   }
 }
+
+.item-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  border-top: 1px solid $black;
+  display: flex;
+  padding: 10px 15px;
+  align-items: center;
+  border-bottom: none;
+  >div { 
+    flex: 1; 
+    text-align: center;
+    &:first-child {
+      text-align: left;
+    }
+  }
+  &:nth-child(2n) {
+    background-color: #f0f0f0;
+  }
+}
