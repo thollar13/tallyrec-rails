@@ -13,7 +13,7 @@
     <div class="main-nav__header">
       <%= current_user.first_name %> <%= current_user.last_name %>
     </div>
-    <div class="main-nav__divider">Blood, Sweat &amp; Beers</div>
+    <div class="main-nav__divider"><%= @team.name %></div>
     <div class="main-nav__team-list">
       <% users_teams.each do |t| %>
         <%= link_to t.team.name, team_path(t.team_id), class: 'nav-link' %>
@@ -43,9 +43,9 @@
 
     <div class="team-nav">
       <div class="team-nav--links">
-        <%= link_to 'Dashboard', team_path(default_team.team_id) %>
-        <%= link_to 'Schedule', team_games_path(default_team.team_id) %>
-        <%= link_to 'Roster', team_members_path(default_team.team_id) %>
+        <%= link_to 'Dashboard', team_path(@team.id) %>
+        <%= link_to 'Schedule', team_games_path(@team.id) %>
+        <%= link_to 'Roster', team_members_path(@team.id) %>
         <a href="">Stats</a>
         <a href="">Messages</a>
       </div>

@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
 
+  layout "team"
+  
   def index
     @team = Team.find(params[:team_id])
   end

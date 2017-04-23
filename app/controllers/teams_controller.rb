@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
 
+  layout "team"
+  
   def index
   end
 
