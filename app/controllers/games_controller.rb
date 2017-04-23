@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 
+  layout "team" 
+
   def index
     @team = Team.find(params[:team_id])
     @game = Game.new

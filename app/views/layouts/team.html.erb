@@ -14,12 +14,6 @@
       <%= current_user.first_name %> <%= current_user.last_name %>
     </div>
     <div class="main-nav__divider">Blood, Sweat &amp; Beers</div>
-    <!-- <div class="main-nav__current-team--nav">
-      <%= link_to 'Dashboard', team_path(default_team.team_id), class: 'nav-link' %>
-      <%= link_to 'Schedule', team_games_path(default_team.team_id), class: 'nav-link' %>
-      <%= link_to 'Roster', team_members_path(default_team.team_id), class: 'nav-link' %>
-    </div> -->
-    <!-- <div class="main-nav__divider">Your Teams</div> -->
     <div class="main-nav__team-list">
       <% users_teams.each do |t| %>
         <%= link_to t.team.name, team_path(t.team_id), class: 'nav-link' %>
@@ -42,6 +36,23 @@
   <div class="main-content">
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
+    <div class="team-dashboard">
+      <p class="lead"><%= @team.name %> (12 - 1)</p>
+      <p class="lead"><%= @team.season %> <%= @team.year %></p>
+    </div>
+
+    <div class="team-nav">
+      <div class="team-nav--links">
+        <%= link_to 'Dashboard', team_path(default_team.team_id) %>
+        <%= link_to 'Schedule', team_games_path(default_team.team_id) %>
+        <%= link_to 'Roster', team_members_path(default_team.team_id) %>
+        <a href="">Stats</a>
+        <a href="">Messages</a>
+      </div>
+      <div class="team-nav--settings">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+      </div>
+    </div>
     <%= yield %>
   </div>
 </body>

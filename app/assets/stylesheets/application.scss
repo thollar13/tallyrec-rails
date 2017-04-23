@@ -17,7 +17,6 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "./variables";
-@import "./main-nav";
 
 .main-content {
   position: fixed;
@@ -43,5 +42,72 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.main-nav {
+  background: $black;
+  bottom: 0;
+  color: $white;
+  position: fixed;
+  top: 0;
+  width: 250px;
+  a { color: $white; }
+  &__divider {
+    text-transform: uppercase;
+    background-color: #333;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    letter-spacing: 1px;
+    height: 40px;
+    line-height: 40px;
+  }
+  &__header {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  &__current-team {
+    &--nav a {
+      border-bottom: 1px solid #333;
+    }
+  }
+  &__team-list {}
+  &__settings {}
+}
+
+.team-dashboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+}
+.team-nav {
+  display: flex;
+  background: #333;
+  padding: 0px 15px;
+  justify-content: space-between;
+  align-items: center;
+  a { color: white; }
+  &--links {
+    display: flex;
+    a {
+      display: flex;
+      text-transform: uppercase;
+      margin-right: 15px;
+      letter-spacing: 1px;
+      font-size: 0.875em;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  &--settings {
+    display: flex;
+    color: white;
   }
 }
