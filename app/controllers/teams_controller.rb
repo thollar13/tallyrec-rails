@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
-  layout "team"
-  
+  layout "team", :except => :new
+
   def index
   end
 
