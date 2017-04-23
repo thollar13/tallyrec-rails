@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <% if current_user %>
   <div class="main-nav">
     <div class="main-nav__header">
       <%= current_user.first_name %> <%= current_user.last_name %>
@@ -20,6 +21,7 @@
     </div>
     <div class="main-nav__divider">Your Teams</div>
     <div class="main-nav__team-list">
+      <%= link_to 'Add Team', new_team_path, class: 'nav-link' %>
       <a href="" class="nav-link">
         <i class="fa fa-plus" aria-hidden="true"></i> 
         Add Team
@@ -34,11 +36,11 @@
       <% end %>
     </div>
   </div>
+  <% end %>
   <div class="main-content">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
     <%= yield %>
   </div>
-
 </body>
 </html>

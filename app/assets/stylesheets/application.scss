@@ -16,6 +16,7 @@
 
 @import "bootstrap";
 @import "font-awesome";
+@import "./variables";
 @import "./main-nav";
 
 .main-content {
@@ -28,7 +29,19 @@
 }
 
 .view-settings {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1em;
+  button {
+    background: transparent;
+    border: 1px solid $black;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 15px;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
