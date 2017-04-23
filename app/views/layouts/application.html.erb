@@ -8,18 +8,19 @@
 </head>
 <body>
 
+
 <ul class="nav justify-content-end">
   <li class="nav-item">
-    <%= link_to 'Dashboard', team_path(@team), class: 'nav-link' %>
+    <%= link_to 'Dashboard', team_path(default_team.team_id), class: 'nav-link' %>
   </li>
   <li class="nav-item">
-    <%= link_to 'Schedule', team_games_path(@team), class: 'nav-link' %>
+    <%= link_to 'Schedule', team_games_path(default_team.team_id), class: 'nav-link' %>
   </li>
   <!-- <li class="nav-item">
     <a class="nav-link" href="#">Stats</a>
   </li> -->
   <li class="nav-item">
-    <%= link_to 'Roster', team_members_path(@team), class: 'nav-link' %>
+    <%= link_to 'Roster', team_members_path(default_team.team_id), class: 'nav-link' %>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Chat</a>
