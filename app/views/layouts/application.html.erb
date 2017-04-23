@@ -21,11 +21,13 @@
     </div>
     <div class="main-nav__divider">Your Teams</div>
     <div class="main-nav__team-list">
-      <%= link_to 'Add Team', new_team_path, class: 'nav-link' %>
-      <a href="" class="nav-link">
+      <% users_teams.each do |t| %>
+        <%= link_to t.team.name, team_path(t.team_id), class: 'nav-link' %>
+      <% end %>
+      <%= link_to  new_team_path, class: 'nav-link' do %>
         <i class="fa fa-plus" aria-hidden="true"></i> 
         Add Team
-      </a>
+      <% end %>
     </div>
     <div class="main-nav__divider">Settings</div>
     <div class="main-nav__settings">

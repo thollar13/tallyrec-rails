@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   helper_method :default_team
+  helper_method :users_teams
 
   def after_sign_in_path_for(resource)
     default_team_or_create_new_team
@@ -21,6 +22,10 @@ class ApplicationController < ActionController::Base
 
   def default_team
     Member.where(user_id: current_user.id).first
+  end
+
+  def users_teams
+    Member.where(user_id: current_user.id)
   end
 
 end
